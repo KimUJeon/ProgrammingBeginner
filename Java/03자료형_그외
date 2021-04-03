@@ -1,0 +1,24 @@
+# Boolean - 참/거짓 1bit [boolean x]
+# char - 문자 2byte(16bit) [char x]
+# Character Type - 한개의 문자만 저장이 가능하며 ''(작은 따옴표) 만 사용
+
+
+---------------------------------------------------------------------------------
+
+
+import java.io.*;
+class Main {
+	public static void main(String[] args) {
+		
+		boolean varTrue = true;
+		char varChar = 'G';
+		System.out.println(varTrue);
+		System.out.println(varChar);
+		
+	}
+}
+
+'''
+true
+G
+'''
