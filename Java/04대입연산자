@@ -1,0 +1,13 @@
+import java.io.*;
+class Main {
+	public static void main(String[] args) throws Exception {
+		int a = 5;
+		int b = 3;
+		b = a;
+		System.out.println(b);
+	}
+}
+
+'''
+5
+'''
