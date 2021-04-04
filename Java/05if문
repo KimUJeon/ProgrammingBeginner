@@ -1,0 +1,19 @@
+import java.io.*;
+
+class Main{
+	public static void main(String[] args) throws Exception{
+		
+		int a = 5;
+		int b = 5;
+
+		if (a == b){
+			System.out.println("일치!");
+		}
+		
+	}
+}
+
+
+'''
+일치!
+'''
