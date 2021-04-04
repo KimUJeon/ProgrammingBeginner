@@ -1,0 +1,22 @@
+import java.io.*;
+
+class Main{
+	public static void main(String[] args) throws Exception{
+		
+		int a = 4;
+		int b = 6;
+
+		
+	if ( a+b >= 10){
+		System.out.println("10 이상");
+	}
+	else{
+		System.out.println("10 미만");
+	}
+	
+	}
+}
+
+'''
+10 이상
+'''
