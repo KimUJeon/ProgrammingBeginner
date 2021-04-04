@@ -1,0 +1,31 @@
+# break는 반복문을 벗어나기 위한 문법임 
+# continue 는 반복문의 조건이 있는 곳으로 돌아가는 문법
+
+
+
+import java.io.*;
+class Main {
+	public static void main(String[] args) throws Exception {
+		int i = 1;
+		for(; i <= 10; i++){
+			if(i == 3) {
+				continue;
+			}
+			if(i == 8){
+				break;
+			}
+			System.out.println(i);
+		}
+		
+	}
+}
+
+
+'''
+1
+2
+4
+5
+6
+7
+'''
