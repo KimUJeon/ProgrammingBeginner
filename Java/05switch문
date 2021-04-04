@@ -1,0 +1,29 @@
+# switch 문은 기본적으로 int 형을 기본으로 가진다.
+# case - switch의 조건을 만족하는 숫자를 적고 콜론(:)을 적는다. 해당 case 부터 break; 를 만날때까지 실행이 된다.
+# default - 필수는 아니지만 사용할 경우 단 하나만 사용할 수 있다.
+
+
+import java.io.*;
+class Main {
+	public static void main(String[] args) throws Exception {
+		
+		int a = 3;
+		
+		switch(a) {
+			case 1:
+				System.out.println("a == 1");
+				break;
+			case 2:
+				System.out.println("a == 2");
+				break;
+			default:
+				System.out.println("a == ?");
+				break;
+		}
+	}
+}
+
+
+'''
+a == ?
+'''
