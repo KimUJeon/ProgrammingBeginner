@@ -1,0 +1,36 @@
+# 멤버란 클래스를 구성하는 요소이다.
+# 클래스 내부 변수를 '멤버 변수' 라고 지칭한다.
+# 클래스로 만들어진 자료형 또한 new 로 메모리 할당을 받는다
+
+--------------------------------------------------------------------------------
+
+import java.io.*;
+class Main {
+	public static void main(String[] args){
+		int a = 4;
+		int b = 11;
+		double c = 3.1;
+		double d = 7.9;
+
+		Calculate cal = new Calculate();
+		System.out.println(cal.Add(a, b));
+		System.out.println(cal.Sub(c, d));
+		System.out.println(cal.Times(a, c));
+		System.out.println(cal.Divide(a, b));
+	}
+}
+
+class Calculate{
+	int Add(int a, int b){
+		return a + b;
+	}
+	int Sub(double c, double d){
+		return (int) (c - d);
+	}
+	double Times(int a, double c){
+		return a * c;
+	}
+	int Divide(int a, int b){
+		return a / b;
+	}
+}
