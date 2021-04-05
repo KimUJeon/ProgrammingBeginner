@@ -1,0 +1,21 @@
+# main 메소드는 시작과 끝이라고 볼 수 있고 모든 프로그램에서 오직 하나만 존재한다.
+# main 메소드가 가장 먼저 실행되고 main 메소드가 끝나면 프로그램은 종료된다.
+
+-----------------------------------------------------------------------------------
+
+import java.io.*;
+class Main {
+	static int method(int a, int b, int c)
+	{
+		return (a + b)/c;
+	}
+	public static void main(String[] args) throws Exception {
+		int result = method(3, 7, 2);
+		System.out.println(result);
+	}
+}
+
+
+'''
+5
+'''
