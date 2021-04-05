@@ -1,0 +1,27 @@
+import java.io.*;
+class Main {
+	public static void main(String[] args) throws Exception {
+		int [] intArray = new int[5];
+		
+		intArray[0] = 1;
+		intArray[1] = 3;
+		intArray[2] = 5;
+		intArray[3] = 7;
+		intArray[4] = 9;
+
+		System.out.println(intArray[0]);
+		System.out.println(intArray[1]);
+		System.out.println(intArray[2]);
+		System.out.println(intArray[3]);
+		System.out.println(intArray[4]);
+	}
+}
+
+
+'''
+1
+3
+5
+7
+9
+'''
