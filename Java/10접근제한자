@@ -1,0 +1,61 @@
+# public 접근 제한 없음
+# protected 자식 클래스에게는 public 그외 private
+# NOT USE 같은 패키지 내 public 그외 private
+# private 본인 객체 내에서만 가능
+
+---------------------------------------------------------------------------
+
+import java.io.*;
+class Main {
+	public static void main(String[] args) {
+		ClassExample ce;
+		ce = new ClassExample();
+		
+		ce.mDouble = 10;	// 오류 발생
+		ce.CE_Print_mDouble();
+		
+		ce.CE_Set_mDouble(30);
+		ce.CE_Print_mDouble();
+	}
+}
+
+class ClassExample {
+	
+	private double mDouble;
+	
+	public void CE_Print_mDouble() {
+		System.out.println(mDouble);
+	}
+	
+	public void CE_Set_mDouble(double dInput) {
+		mDouble = dInput;
+	}
+	
+}
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+import java.io.*;
+class Main {
+	public static void main(String[] args) {
+		ClassExample ce;
+		ce = new ClassExample();
+		
+		ce.CE_Set_mDouble(30);
+		ce.CE_Print_mDouble();
+	}
+}
+
+class ClassExample {
+	
+	private double mDouble;
+	
+	public void CE_Print_mDouble() {
+		System.out.println(mDouble);
+	}
+	
+	public void CE_Set_mDouble(double dInput) {
+		mDouble = dInput;
+	}
+	
+}
