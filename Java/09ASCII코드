@@ -1,0 +1,36 @@
+# ASCII 코드란 1Byte(8bit)로 표현할 수 있는 숫자를 각각의 문자와 매칭시킨 코드
+# char형에 저장되는 문자가 ASCII 코드에 의해 각각의 글자와 숫자가 대응이 되므로 switch 조건문에 들어가 사용될 수 있다.
+
+---------------------------------------------------------------------------------------------------
+
+
+import java.io.*;
+class Main {
+	public static void main(String[] args) throws Exception {
+		
+		char a = 83;
+		System.out.print(a);
+		
+		char b = 111;
+		System.out.print(b);
+		
+		char c = 32;
+		System.out.print(c);
+		
+		char d = 103;
+		System.out.print(d);
+		
+		System.out.print(b);
+		System.out.print(b);
+		
+		char e = 100;
+		System.out.print(e);
+		
+		char f = 33;
+		System.out.print(f);
+	}
+}
+
+'''
+So good!
+'''
