@@ -1,0 +1,17 @@
+# 배열(Array)은 변수 혹은 상수의 모음이다.
+# int [] Array 는 대괄호 표시가 배열형 변수라튼 뜻이다. new는 변수에 메모리 공간을 할당할 때 사용한다.
+# 참조형 자료형에 메모리 공간을 할당할 때 사용한다. <배열은 그 자체로 참조형> 이다.
+# double [] doubleArray = new double[20]; 은 double 형 변수를 20칸 저장할 수 있는 배열을 생성한다는 의미이다.
+
+
+
+-----------------------------------------------------------------------
+
+import java.io.*;
+class Main {
+	public static void main(String[] args) throws Exception {
+		
+		double [] doubleArray = new double[20];
+
+	}
+}
