@@ -1,0 +1,24 @@
+# main 메소드 메모리 공간에는 a = 1 b = 2 c = 3 이 할당되고
+# times 메소드 메모리 공간에는 a = 1 b = 5 c = 6 이 할당이 된다.
+# 컴퓨터 내부에서는 서로 다른 공간에 할당 된 데이터이기 때문에 times 내부를 변화시켜도 main은 변화하지 않는다
+# 이를 Call By Value 라고 부른다
+
+
+import java.io.*;
+class Main {
+		static int times(int a, int b, int c) {
+			c = a + b;
+			return a * b;
+		}
+	
+		public static void main(String[] args) throws Exception {
+			int a = 1;
+			int b = 2;
+			int c = 3;
+			
+			int result = times(a, 5, c);
+			
+			System.out.println("result = " + result);
+			System.out.println("int c = " + c);
+		}
+}
