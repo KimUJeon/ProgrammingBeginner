@@ -1,0 +1,25 @@
+# InputStreamReader 가 FileReader, System.in이 File 로 바뀜
+
+----------------------------------------------------------------------------
+
+import java.io.*;
+
+class Main {
+	public static void main(String[] args) throws Exception {
+		
+		String filePath = "data/goormFileTest.txt";		
+		
+		BufferedReader br = new BufferedReader(new FileReader(new File("data/goormFileTest.txt")));
+		
+		String str = br.readLine();
+		
+		System.out.println(str);
+		
+		br.close();
+	}
+}
+
+
+'''
+Hello Goorm!!
+'''
