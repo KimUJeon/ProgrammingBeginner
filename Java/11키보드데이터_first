@@ -1,0 +1,42 @@
+# 콘솔은 대표적인 CLI(Command Line Interface) 개발 환경이며 글자를 이용한 입출력 환경을 뜻한다.
+# import java.util.Scanner; 를 Scanner 사용시 작성할것
+# nextInt() 및 nextDouble() 메소드를 사용하면 사용자가 직접 입력하기 전까지 프로그램이 진행되지 않는다
+
+----------------------------------------------------------------------------------------------------
+
+import java.io.*;
+import java.util.Scanner;
+class Main {
+	public static void main(String[] args) throws Exception {
+		Scanner scanner;
+		scanner = new Scanner(System.in);
+	
+		while(true) {
+			int input = -1;
+			input = scanner.nextInt();
+			
+			switch(input) {
+				case 0:
+					return;
+				case 1:
+					System.out.println("입력:1");
+					break;
+				case 2:
+					System.out.println("입력:2");
+					break;
+				case 3:
+					System.out.println("입력:3");
+					break;
+				default:
+					break;
+			}
+		}
+	}
+}
+
+
+'''
+입력:1
+입력:2
+입력:3
+'''
