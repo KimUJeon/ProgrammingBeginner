@@ -1,0 +1,56 @@
+# 배열을 사용할 때는 반복문을 사용하는 경우가 많아 예시처럼 배열의 길이를 상수로 지정하는 것이 일반적이다 
+# 12번째 줄은 오직 배열의 크기를 지정해주는 역할만 수행하며, 객체는 17번째 줄에서 생성된다. 
+# 반복문과 함께 각 배열칸에 new classexample(j)을 사용하여 각 객체에 메모리를 할당한다. 
+# 둘 다 new를 사용하는 소스코드이지만 역할이 다르므로 사용에 유의해야 한다.
+# 21~23번째 줄은 배열이름[인데스] 형태로 사용되며 불러온 데이터는 클래스로 .메소드를 붙여 사용할 수 있다.
+
+
+
+
+
+import java.io.*;
+
+class Main {
+	
+	public static void main(String[] args) throws Exception {
+		
+		// 배열의 크기를 관리하는 상수 : ArrayNum
+		final int ArrayNum = 5;
+		
+		// 클래스 배열 변수 : CE_Array
+		// 배열 변수 사이즈 지정( ArrayNum크기 만큼 배열 사이즈 지정 )
+		ClassExample[] CE_Array = new ClassExample[ArrayNum];
+		
+		// 각 배열칸의 객체 초기화( new 객체 )
+		// 생성자를 통해 객체의 iIndex 변수 초기화
+		for(int j = 0 ; j < ArrayNum ; j++) {
+			CE_Array[j] = new ClassExample(j);
+		}
+		
+		// 객체 사용( Print_iIndex 메소드 사용 )
+		for(int j = 0 ; j < ArrayNum ; j++) {
+			CE_Array[j].Print_iIndex();
+		}
+	}	
+}
+
+class ClassExample {
+	int iIndex;
+	
+	public ClassExample(int i) {
+		iIndex = i;
+	}
+	
+	public void Print_iIndex() {
+		System.out.println(iIndex);
+	}
+}
+
+
+'''
+0
+1
+2
+3
+4
+'''
