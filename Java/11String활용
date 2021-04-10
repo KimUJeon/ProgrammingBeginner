@@ -1,0 +1,11 @@
+# BufferedReader - readLine() 메소드는 String 형태를 반환한다.
+# int - int iVal =      /     Integer.valueOf(szBuf);
+# double - double iVal =      /     Double.valueOf(szBuf);
+# char - char iVal =      /     szBuf.charAt(0);
+
+<String 비교>
+# String 변수를 비교하려면 equals 메소드를 사용할 수 있다.
+<String 길이>
+# length()를 이용해 String 의 길이를 알아 낼 수 있다.
+<String Split>
+# split 을 이용해 String 을 잘라낼 수 있다.
