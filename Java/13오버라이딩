@@ -1,0 +1,53 @@
+# 오버라이딩(overriding)이란 부모 클래스의 멤버를 자식 클래스에서 재정의하여 사용하는 것 이다.
+# 오버로딩 - 같은 클래스 내에서 같은 이름의 메소드를 재정의   /   재정의 시 파라미터 타입, 개수, 메소드의 리턴 값 중 하나라도 달라야 한다
+# 오버라이딩 - 부모 클래스로부터 상속받은 메소드를 자식 클래스에서 재정의    /   재정의 시 자식 메소드와 부모 메소드의 파라미터 및 리턴 값이 같아야 한다
+
+---------------------------------------------------------------------------------------------------------------
+
+
+
+public class Main {
+
+	public static void main(String[] args) {
+		Soccer soccer = new Soccer();
+		Tennis tennis = new Tennis();
+		
+		soccer.setSportsName();
+		tennis.setSportsName();
+		
+		soccer.printSportsName();
+		tennis.printSportsName();
+	}
+
+}
+
+class Sports {
+	protected String SportsName;
+	
+	public void setSportsName() {
+		SportsName = "Sports";
+	}
+	
+	public void printSportsName() {
+		System.out.println(SportsName);
+	}
+}
+
+class Soccer extends Sports {
+	public void setSportsName() {
+		SportsName = "Soccer";
+	}	
+}
+
+class Tennis extends Sports {
+	public void setSportsName() {
+		SportsName = "Tennis";
+	}
+}
+
+
+
+'''
+Soccer
+Tennis
+'''
