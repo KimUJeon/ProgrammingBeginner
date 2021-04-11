@@ -1,0 +1,78 @@
+# 다중 상속 기능을 제한하고 있는 것이 JAVA - extends 뒤에 작성 할 수 있는 클래스는 단 하나만 가능함
+# interface 는 extends 보다 더 추상화 되어있는 클래스임
+
+
+interface Example {
+	public static final int iVariable;
+	// int iVariable만 써도 동일함.
+	
+	abstract public void method();
+	// void method()만 써도 동일함.
+}
+
+# interface 는 기본적으로 class 와 비슷하나 멤버 변수는 public static final 만 사용이 가능하고 메소드도 abstract public 만 가능함
+
+
+
+public class Main {
+	public static void main(String[] args) {
+		MP3Player_Ver1 mp3_ver1 = new MP3Player_Ver1();
+		mp3_ver1.Play();
+		mp3_ver1.Stop();
+		//mp3_ver2.Next(); 불가능 합니다.
+		//mp3_ver2.Prev(); 불가능 합니다.
+		
+		MP3Player_Ver2 mp3_ver2 = new MP3Player_Ver2();
+		mp3_ver2.Play();
+		mp3_ver2.Stop();
+		mp3_ver2.Next();
+		mp3_ver2.Prev();
+	}
+}
+
+class MP3Player_Ver1 implements PlayFunction, StopFunction {
+	public void Play() {
+		System.out.println("Play_Ver1!");
+	}
+
+	public void Stop() {
+		System.out.println("Stop_Ver1!");
+	}
+}
+
+class MP3Player_Ver2 implements PlayFunction, StopFunction, NextFunction, PrevFunction {
+	public void Play() {
+		System.out.println("Play_Ver2!");
+	}
+
+	public void Stop() {
+		System.out.println("Stop!_Ver2");
+	}
+	
+	public void Next() {
+		System.out.println("Next!_Ver2");
+	}
+	
+	public void Prev() {
+		System.out.println("Prev!_Ver2");
+	}
+}
+
+interface PlayFunction {
+	abstract public void Play();
+}
+
+interface StopFunction {
+	abstract public void Stop();	
+}
+
+interface NextFunction {
+	abstract public void Next();
+}
+
+interface PrevFunction {
+	abstract public void Prev();
+}
+
+
+# interface 로 부터 상속을 받을땐, extends 를 사용하지 않고 implements 를 사용한다는 것을 유의해야 한다
