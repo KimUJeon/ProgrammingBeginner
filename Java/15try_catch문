@@ -1,0 +1,17 @@
+# try 단독 혹은 catch 단독으로 사용이 불가능하다
+# try 내부에 오류가 예측되는 구문이 들어가고 catch 는 예측되는 오류 발생시 실행할 구문이 들어간다
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		String str = "test";
+		
+		try {
+			int a = Integer.valueOf(str);
+		} catch (NumberFormatException e) {
+			System.out.print("Error!");
+		}
+		
+	}
+}
