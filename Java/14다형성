@@ -1,0 +1,54 @@
+public class Main {
+	public static void main(String[] args) {
+		
+		Animal animal_lion = new Lion("사자");
+		animal_lion.Growl();
+		
+		Animal animal_cat = new Cat("고양이");
+		animal_cat.Growl();
+		//animal_cat.Udada(); 불가능합니다.
+	}
+}
+
+abstract class Animal {
+	
+	String Name;
+	
+	public Animal(String name) {
+		Name = name;
+	}
+	
+	abstract public void Growl(); 
+}
+
+class Lion extends Animal {
+
+	public Lion(String name) {
+		super(name);
+	}
+
+	public void Growl() {		
+		System.out.println("어흥");
+	}
+}
+
+class Cat extends Animal {
+	public Cat(String name) {
+		super(name);
+	}
+	
+	public void Growl() {		
+		System.out.println("야옹");
+	}
+	
+	public void Udada() {
+		System.out.println("UDADADA");
+	}
+}
+
+
+# 다형성이란 객체가 다양한 형태로 표현될 수 있다는 개념이다
+# 클래스의 관점에서 보자면, 부모의 클래스를 활용하여 자식의 객체를 제어할 수 있다는 뜻이다.
+# 다형성(Polymorphism)은 객체를 여러가지 형태로 변환하여 사용할 수 있는 기법
+# animal_lion 과 animal_cat의 자료형은 Animal 클래스이나 4번째 줄에서 객체를 초기화 할 때 Lion 클래스를, 7번째 줄에서는 Cat 클래스를 사용하는 것을 볼 수 있음
+# 데이터는 각각의 자식 클래스에 저장되지만 틀은 Animal 클래스로 animal_cat.Udada() 를 사용할 수 없다.
