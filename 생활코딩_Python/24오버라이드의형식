@@ -1,0 +1,9 @@
+class C1:
+    def m(self):
+        return 'parent'
+class C2(C1):
+    def m(self):
+        return super().m() + ' child'     //super().m()을 통해 C1 클래스의 m메소드를 불러오게 한다.
+    pass
+o = C2()
+print(o.m())      //6번째 줄로 인하여 C1클래스의 m 메소드의 리턴값과 child 값이 더해져 parent child 가 출력되게 한다
