@@ -1,0 +1,25 @@
+class C1():
+    def c1_m(self):
+        print("c1_m")
+    def m(self):
+        print("C1 m")
+ 
+class C2():
+    def c2_m(self):
+        print("c2_m")
+    def m(self):
+        print("C2 m")
+ 
+class C3(C2, C1):
+    def m(self):
+        print("C3 m")
+ 
+c = C3()  //c를 C3로 초기화한다
+c.c1_m()  //c1_m 이 출력된다.
+c.c2_m()  //c2_m 이 출력된다.
+c.m()     //C3 m 이 출력된다.
+print(C3.__mro__)   //__mro__ - 클래스 사용시 우선 순위를 알려주는 변수
+
+
+IF > C3 클래스에 m 메소드가 없다면 C1 의 m 메소드가 실행이 된다.
+IF > 위 조건과 동일한 상태에서 C2에 m 메소드가 있더라도 C1 m 메소드가 실행되고 끝이난다.
