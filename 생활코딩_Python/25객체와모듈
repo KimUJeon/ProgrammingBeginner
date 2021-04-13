@@ -1,0 +1,10 @@
+<1.py>
+
+import lib //lib 모듈을 불러옴
+obj = lib.A() //lib 모듈의 A 클래스를 obj로 줄임
+print(obj.a()) //lib 모듈의 A 클래스에 있는 a 메소드를 출력시킴
+
+<lib.py>
+class A:
+    def a(self):
+      return 'a' //print(obj.a()) 의 결과값이 a 가 출력됨
