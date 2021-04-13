@@ -1,0 +1,17 @@
+다중상속이란? 하나의 자식이 여러 부모 클래스에서 상속받을 수 있다. (JAVA 미지원, C++ 지원)
+
+
+class C1():
+    def c1_m(self):
+      print("c1_m")
+      
+class C2():
+    def c2_m(self):
+      print("c2_m")
+      
+class C3(C1, C2): //C1과 C2를 부모로 하는 클래스가 됨
+    pass
+    
+c = C3()
+c.c1_m() //c1_m 이 출력된다
+c.c2_m() //c2_m 이 출력된다
