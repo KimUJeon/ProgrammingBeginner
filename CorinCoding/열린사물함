@@ -1,0 +1,32 @@
+n = 100
+lockers = [-1] * (n + 1)
+for i in range(1, 101):
+    lockers[i] = 0        # 반복문을 통해 lockers 리스트의 모든 원소를 0으로 초기화 시키기
+
+for N in range(1, 101):           # N이 1부터 101까지 반복 작업
+    for j in range(N, 101, N):    # j가 N번의 배수대로만 움직이게 함
+        if (lockers[j] == 0):     # N과 j가 거쳐가며 겹쳤던 부분만 몇번째 학생이 열었던 것인지 표시
+            lockers[j] = j
+        else:
+            lockers[j] = 0
+            
+print(lockers)
+
+open_lockers = []
+for i in lockers:       # lockers 리스트의 원소인 i 가 0보다 클 경우 open_lockers 리스트에 저장
+    if (i > 0):         
+        open_lockers.append(i)
+
+print('열린 사물함의 갯수는', len(open_lockers))     # open_lockers 에 등록된 원소 갯수만 확인하면 되기 때문에 len 사용
+print('열린 사물함의 번호는', open_lockers)          # open_lockers 의 원소가 사물함의 번호이기 때문에 그대로 불러오기
+
+------------------------------------------------------------------------------------------------------------------------------------------
+n = 100
+i = 1
+open_lockers = []
+while (i**2 <= n):                # i의 제곱이 n보다 작을때 open_lockers에 해당 숫자를 추가한다
+    open_lockers.append(i**2)
+    i += 1                        # i의 크기를 1 씩 늘린다
+
+print('열린 사물함의 갯수는', len(open_lockers))
+print('열린 사물함의 번호는', open_lockers)
