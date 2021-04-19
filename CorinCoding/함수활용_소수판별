@@ -1,0 +1,86 @@
+# 소수의 판별과 함수의 활용
+
+n = 11
+
+is_prime = True
+for i in range(2, n):
+    if (n % i == 0):
+        is_prime = False
+        break
+
+if (is_prime):
+    print(n, '은 소수입니다.')
+else:
+    print(n, '은 합성수입니다.')
+
+numbers1 = [19, 37, 47, 57, 71, 83, 87]
+
+for n in numbers1:
+    is_prime = True
+    for i in range(2, n):
+        if (n % i == 0):
+            is_prime = False
+            break
+    if (is_prime):
+        print(n, '은 소수입니다.')
+    else:
+        print(n, '은 합성수입니다.')
+
+numbers2 = [127, 1023, 2333, 2337, 8191, 10867, 10869]
+
+def isPrime(n):
+    for i in range(2, n):
+        if (n % i == 0):
+            return False
+    return True
+
+for n in numbers2:
+    if (isPrime(n)):
+        print(n, '은 소수입니다.')
+    else:
+        print(n, '은 합성수입니다.')
+
+# 이 코드는 너무 오래 걸려요...
+# n = 2147483647
+# if (isPrime(n)):
+#     print(n, '은 소수입니다.')
+# else:
+#     print(n, '은 합성수입니다.')
+
+import math
+def isPrime2(n):
+    for i in range(2, math.floor(math.sqrt(n)) + 1):
+        if (n % i == 0):
+            return False
+    return True
+
+n = 2147483647
+if (isPrime2(n)):
+    print(n, '은 소수입니다.')
+else:
+    print(n, '은 합성수입니다.')
+
+import math           # 모듈의 수입
+from math import pi   # 모듈로부터 특정 변수/함수 수입
+print(pi)
+print(math.floor(pi))
+print(math.ceil(pi))
+print(math.sqrt(pi))
+
+    
+# continue 예제
+primes = []
+for i in range(2, 101):
+    if (not isPrime2(i)):
+        continue
+    primes.append(i)
+   
+print(primes)
+print(len(primes))
+
+# n = 10000000
+# count = 0
+# for i in range(2, n):
+#     if (isPrime2(i)):
+#         count += 1
+# print(count)
