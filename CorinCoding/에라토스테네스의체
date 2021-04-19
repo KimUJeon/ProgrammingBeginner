@@ -1,0 +1,64 @@
+import math
+
+def isPrime2(n):
+    for i in range(2, math.floor(math.sqrt(n)) + 1):
+        if (n % i == 0):
+            return False
+    return True
+
+def countPrimes(n):
+    count = 0
+    for i in range(2, n + 1):
+        if (isPrime2(i)):
+            count += 1
+    return count
+
+n = 1000000
+m = countPrimes(n)
+print(n, '이하의 소수는', m, '개 입니다.')
+
+import time
+n = 1000000
+start = time.time()
+print(countPrimes(n))
+elapsed = time.time() - start
+print(elapsed, '초')
+print(elapsed/60, '분')
+print(elapsed/60/60, '시간')
+
+n = 100
+sieve = [False, False] + [True] * (n - 1)
+primes = []
+for i in range(2, n + 1):
+    if (sieve[i]):
+        primes.append(i)
+    for j in range(i * 2, n + 1, i):
+        sieve[j] = False
+       
+print(sieve)
+print(primes)
+print(len(primes))
+
+def countPrimes2(n):
+    sieve = [False, False] + [True] * (n - 1)
+    count = 0
+    for i in range(2, n + 1):
+        if (sieve[i]):
+            count += 1
+        for j in range(i * 2, n + 1, i):
+            sieve[j] = False
+    return count
+
+import time
+
+n = 1000000
+m = countPrimes2(n)
+print(n, '이하의 소수는', m, '개 입니다.')
+
+n = 100000
+start = time.time()
+print(countPrimes2(n))
+elapsed = time.time() - start
+print(elapsed, '초')
+print(elapsed/60, '분')
+print(elapsed/60/60, '시간')
