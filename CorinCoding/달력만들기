@@ -1,0 +1,85 @@
+# 달력 만들기
+
+year = 2020
+month = 7
+day_of_week = 3 # 수요일
+
+print(year, '년', month, '월:')
+
+weekdays = ['일', '월', '화', '수', '목', '금', '토']
+# print(weekdays)
+for day in weekdays:
+    print(' ', day, end = ' ')
+print()
+
+for _ in range(day_of_week):
+    print('    ', end = ' ')
+
+def leapyear(y):
+    if ((y % 4 == 0 and y % 100 != 0) or y % 400 == 0):
+        return True
+    else:
+        return False
+
+def daysOfMonth(y, m):
+    numOfDays = 31
+    if (m in [4, 6, 9, 11]):
+        numOfDays = 30
+    if (m == 2):
+        if (leapyear(year)):
+            numOfDays = 29
+        else:
+            numOfDays = 28
+    return numOfDays
+
+numOfMonth = daysOfMonth(year, month)
+# print(numOfMonth)
+
+for day in range(1, numOfMonth + 1):
+    if (day < 10):
+        print('  ', day, end = ' ')
+    else:
+        print(' ', day, end = ' ')
+    if ((day_of_week + day) % 7 == 0):
+        print()
+print()
+
+# 날짜로 요일을 알 수 있을까?
+
+def dayOfTheWeek(y, m, d):
+    t1 = y - (14 - m) // 12
+    t2 = t1 + (t1//4) - (t1//100) + (t1//400)
+    t3 = m + 12 * ((14 - m) // 12) - 2
+    return (d + t2 + (31 * t3 // 12)) % 7
+
+year = 2020
+month = 7
+day = 1
+print(dayOfTheWeek(year, month, day))
+
+# 년, 월로 달력 만들기 함수
+
+def printCalendar(y, m):
+    numOfMonth = daysOfMonth(y, m)
+    day_of_week = dayOfTheWeek(y, m, 1)
+    print(y, '년', m, '월:')
+    for day in weekdays:
+        print(' ', day, end = ' ')
+    print()
+    for _ in range(day_of_week):
+        print('    ', end = ' ')
+    for day in range(1, numOfMonth + 1):
+        if (day < 10):
+            print('  ', day, end = ' ')
+        else:
+            print(' ', day, end = ' ')
+        if ((day_of_week + day) % 7 == 0):
+            print()
+    print()
+
+year = 2002
+month = 6
+printCalendar(year, month)
+
+for m in range(1, 13):
+    printCalendar(year, m)
