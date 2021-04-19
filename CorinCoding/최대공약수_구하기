@@ -1,0 +1,102 @@
+
+def divisors(n):
+    div = []
+    for i in range(1, n + 1):
+        if (n % i == 0):
+            div.append(i)
+    return div
+
+x = 78696
+y = 19332
+div_x = divisors(x)
+div_y = divisors(y)
+print(div_x)
+print(div_y)
+
+def commons(n, m):
+    comm = []
+    for i in n:
+        if (i in m):
+            comm.append(i)
+    return comm
+
+comm = commons(div_x, div_y)
+print(comm)
+
+def gcd(n, m):
+    div_n = divisors(n)
+    div_m = divisors(m)
+    comm = commons(div_n, div_m)
+    return comm[len(comm) - 1]
+
+g = gcd(x, y)
+print('최대공약수는', g)
+
+def factorize2(n):
+    factor = 2
+    factors = []
+    while (factor ** 2 <= n):
+        while (n % factor == 0):
+            n = n // factor
+            factors.append(factor)
+        factor += 1
+    if (n > 1):
+        factors.append(n)
+    return factors
+
+x = 78696
+y = 19332
+f1 = factorize2(x)
+f2 = factorize2(y)
+print(f1)
+print(f2)
+
+def commonFactors(n, m):
+    i = 0
+    j = 0
+    commons = []
+    while (i < len(n) and j < len(m)):
+        if (n[i] == m[j]):
+            commons.append(n[i])
+            i += 1
+            j += 1
+        elif (n[i] < m[j]):
+            i += 1
+        else:
+            j += 1
+    return commons
+
+cf = commonFactors(f1, f2)
+print(cf)
+
+def gcd2(n, m):
+    f1 = factorize2(n)
+    f2 = factorize2(m)
+    factors = commonFactors(f1, f2)
+    gcd = 1
+    for i in factors:
+        gcd *= i
+    return gcd
+
+x = 78696
+y = 19332
+g = gcd2(x, y)
+print('최대공약수는', g)
+
+x = 78696
+y = 19332
+z = 73500
+
+g = gcd(x, y)
+g = gcd(g, z)
+print('1. 최대공약수는', g)
+
+g = gcd2(x, y)
+g = gcd2(g, z)
+print('2. 최대공약수는', g)
+
+numbers = [3744, 4004, 2132, 2548, 1456, 3536, 3588, 2704, 3380]
+g = numbers[0]
+for i in range(1, len(numbers)):
+    g = gcd(g, numbers[i])
+print(g)
