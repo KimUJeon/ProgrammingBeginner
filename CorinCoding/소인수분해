@@ -1,0 +1,75 @@
+import math
+
+def isPrime2(n):
+    for i in range(2, math.floor(math.sqrt(n)) + 1):
+        if (n % i == 0):
+            return False
+    return True
+
+def findPrimes(n):
+    primes = []
+    for i in range(2, n + 1):
+        if (isPrime2(i)):
+            primes.append(i)
+    return primes
+
+n = 45
+primes = findPrimes(n)
+print(primes)
+
+def factorize(n):
+    factors = []
+    primes = findPrimes(n)
+    for i in primes:
+        while (n % i == 0):
+            factors.append(i)
+            n = n // i
+    return factors
+
+n = 45
+# n = 3757208
+factor_list = factorize(n)
+print(factor_list)
+
+def factorize2(n):
+    factor = 2
+    factors = []
+    while (factor ** 2 <= n):
+        while (n % factor == 0):
+            n = n // factor
+            factors.append(factor)
+        factor += 1
+    if (n > 1):
+        factors.append(n)
+    return factors
+
+n = 45
+# n = 3757208
+# n = 287994837222311
+factor_list = factorize2(n)
+print(factor_list)
+
+def findFactors(n):
+    factor_list = factorize2(n)
+    factors = []
+    for i in factor_list:
+        if (i not in factors):
+            factors.append(i)
+    return factors
+
+n = 45
+# n = 3757208
+# n = 287994837222311
+factors = findFactors(n)
+print(factors)
+
+def findPrimes2(n):
+    primes = []
+    for i in range(2, (n // 2) + 1):
+        if (isPrime2(i)):
+            primes.append(i)
+    return primes
+
+n = 45
+primes = findPrimes2(n)
+print(primes)
