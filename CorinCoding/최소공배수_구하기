@@ -1,0 +1,75 @@
+import math
+
+x = 36
+y = 48
+g = math.gcd(x, y)
+print('최대공약수는', g)
+
+l = (x * y) // g
+print('최소공배수는', l)
+
+def lcm(n, m):
+    return (n * m) // math.gcd(n, m)
+
+def lcmFromTo(start, end):
+    l = start
+    for i in range(start + 1, end + 1):
+        l = lcm(l, i)
+    return l
+
+print(lcmFromTo(1, 10))
+print(lcmFromTo(1, 20))
+
+def factorize2(n):
+    factor = 2
+    factors = []
+    while (factor ** 2 <= n):
+        while (n % factor == 0):
+            n = n // factor
+            factors.append(factor)
+        factor += 1
+    if (n > 1):
+        factors.append(n)
+    return factors
+
+def lcmFactors(n, m):
+    i = 0
+    j = 0
+    factors = []
+    while (i < len(n) and j < len(m)):
+        if (n[i] == m[j]):
+            factors.append(n[i])
+            i += 1; j += 1
+        elif (n[i] < m[j]):
+            factors.append(n[i])
+            i += 1
+        else:
+            factors.append(m[j])
+            j += 1
+    while (i < len(n)):
+        factors.append(n[i])
+        i += 1
+    while (j < len(m)):
+        factors.append(m[j])
+        j += 1
+    return factors
+
+def lcm2(n, m):
+    f1 = factorize2(n)
+    f2 = factorize2(m)
+    factors = lcmFactors(f1, f2)
+    lcm = 1
+    for i in factors:
+        lcm *= i
+    return lcm
+
+x = 36
+y = 48
+l = lcm2(x, y)
+print('최소공배수는', l)
+
+numbers = [11, 13, 15, 16, 17, 19, 20, 25, 30]
+l = numbers[0]
+for i in range(1, len(numbers)):
+    l = lcm(l, numbers[i])
+print(l)
