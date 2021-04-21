@@ -1,0 +1,76 @@
+
+string = "MDCLXVI"
+
+print(string[0])
+print(string[6])
+
+for i in range(len(string)):
+    print(string[i], end=' ')
+print()
+
+print("M" + "D" + "C" + "L" + "X" + "V" + "I")
+
+def getValueOf(symbol):
+    if (symbol == 'M'): return 1000
+    elif (symbol == 'D'): return 500
+    elif (symbol == 'C'): return 100
+    elif (symbol == 'L'): return 50
+    elif (symbol == 'X'): return 10
+    elif (symbol == 'V'): return 5
+    elif (symbol == 'I'): return 1
+
+roman = "MDCLXVI"
+for i in range(len(roman)):
+    print(roman[i], ":", getValueOf(roman[i]))
+
+
+romanDict = { 'M':1000, 'D':500, 'C':100, 'L':50, 'X':10, 'V':5, 'I':1}
+
+roman = "MDCLXVI"
+for i in range(len(roman)):
+    print(roman[i], ":", romanDict[roman[i]])
+
+roman = "MDCLXVI"
+arabic = 0
+for i in range(len(roman)):
+    value = getValueOf(roman[i])
+    arabic += value
+print(arabic)
+
+roman = "MDCLXVI"
+arabic = 0
+for i in range(len(roman)):
+    arabic += romanDict[roman[i]]
+print(arabic)
+
+def toArabicNumber(roman):
+    arabic = 0
+    for i in range(len(roman)):
+        value = romanDict[roman[i]]
+        if (i < (len(roman) - 1) and value < romanDict[roman[i+1]]):
+            arabic -= value
+        else:
+            arabic += value
+    return arabic
+
+romans = ['CCCLXIX', 'LXXX', 'XXIX', 'CLV', 'XIV', 
+          'CDXCII', 'CCCXLVIII', 'CCCI', 'CDLXIX', 'CDXCIX']
+arabics = []
+for str in romans:
+    arabics.append(toArabicNumber(str))
+print(arabics)
+
+
+romanDict = { 'M':1000, 'D':500, 'C':100, 
+              'L':50, 'X':10, 'V':5, 'I':1}
+
+def toArabicNumber(roman):
+    arabic = 0
+    for i in range(len(roman)):
+        value = romanDict[roman[i]]
+        if (i < (len(roman) - 1) and 
+            value < romanDict[roman[i+1]]):
+            arabic -= value
+        else:
+            arabic += value
+    return arabic
