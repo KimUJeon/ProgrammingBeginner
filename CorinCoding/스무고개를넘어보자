@@ -1,0 +1,55 @@
+import random
+
+answer = random.randint(1, 1000)
+print(answer)
+
+start = 1
+end = 1000
+while (start < end):
+    mid = (start + end) // 2
+    print(start, end, mid)
+    if (mid < answer):
+        start = mid + 1
+    else:
+        end = mid
+
+print(start, end, mid)
+
+def guess(answer, start, end):
+    while (start < end):
+        mid = (start + end) // 2
+        if (mid < answer):
+            start = mid + 1
+        else:
+            end = mid
+    return start
+
+start = 1
+end = 1000
+for _ in range(10000):
+    answer = random.randint(start, end)
+    result = guess(answer, start, end)
+    if (answer != result):
+        print('오류!', answer, result)
+
+def guess2(answer, start, end):
+    count = 0
+    while (start < end):
+        count += 1
+        mid = (start + end) // 2
+        if (mid < answer):
+            start = mid + 1
+        else:
+            end = mid
+    return count
+
+start = 1
+for n in range(21):
+    end = 2 ** n
+    maxcount = 0
+    for _ in range(1000):
+        answer = random.randint(start, end)
+        count = guess2(answer, start, end)
+        if (maxcount < count):
+            maxcount = count
+    print(start, end, maxcount, 2 ** n)
