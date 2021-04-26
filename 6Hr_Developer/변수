@@ -1,0 +1,16 @@
+# -*- coding: utf-8 -*-
+# UTF-8 encoding when using korean
+
+animal = "강아지"
+name = "연탄이"
+age = 4
+hobby = "산책"
+is_adult = age >= 3
+
+print("우리집" + animal + "의 이름은 연탄이에요")
+print("연탄이는" + str(age) + "살이며," + hobby + " 을 아주 좋아해요.")     # age 는 정수형태이기 때문에 문자열인 str 형태로 변환하여 출력해 주어야 한다.
+print("연탄이는 어른일까요? " + str(is_adult))     # is_adult 는 boolean 형태이기 때문에 문자열인 str 형태로 변환하여 출력해 주어야 한다.
+
+
+# 알아가야 할 점
+# 문장과 + 로 결합할 때는 str 형태. 즉, 문자열 형태로 변환하여 결합해야 출력을 할 수 있다.
