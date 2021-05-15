@@ -1,0 +1,19 @@
+# -*- coding: utf-8 -*-
+# UTF-8 encoding when using korean
+
+gun = 10
+
+def checkpoint(soldiers): # 경계근무
+	global gun # 전역 공간에 있는 gun 사용
+	gun = gun - soldiers
+	print("[함수 내] 남은 총: {0}".format(gun))
+	
+def checkpoint_ret(gun, soldiers):
+	gun = gun - soldiers
+	print("[함수 내] 남은 총 : {0}".format(gun))
+	return gun
+	
+print("전체 총 : {0}".format(gun))
+gun = checkpoint_ret(gun, 2) # 경계 근무를 2명이 나간 상태
+print("남은 총 : {0}".format(gun))
+
