@@ -1,0 +1,7 @@
+# -*- coding: utf-8 -*-
+# UTF-8 encoding when using korean
+
+def open_account():
+	print("새로운 계좌가 생성되었습니다.")
+
+open_account() # 함수를 호출해 주어야 함수가 작동함
