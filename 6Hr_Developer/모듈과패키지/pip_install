@@ -1,0 +1,14 @@
+# -*- coding: utf-8 -*-
+# UTF-8 encoding when using korean
+
+In Terminal
+pip install beautifulsoup4
+
+pip list = 설치되어 있는 패키지 내역을 확인 할 수 있다.
+pip show beautifulsoup4
+- 해당하는 패키지에 대한 정보를 보여준다
+
+pip install --upgrade beautifulsoup4
+- 해당 패키지 최신버전 업데이트
+pip uninstall <패키지>
+- 해당 패키지 삭제
