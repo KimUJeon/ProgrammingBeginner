@@ -1,0 +1,44 @@
+def correct_sentence(sentence):
+    sentence = sentence.capitalize()
+    
+    if not sentence.endswith('.'):
+        sentence += '.'
+    
+    return sentence
+    
+
+print(correct_sentence("greetings. friends"))
+print(correct_sentence("Greetings. friends"))
+print(correct_sentence("Greetings. friends."))
+
+<내가 생각한 해답>
+
+Input: A string.
+
+Output: A string.
+
+<왼손의 해답>
+def correct_sentence(text: str):
+    text = text[0].upper() + text[1:]
+    
+    if not text.endswith('.'):
+        text += '.'
+        
+    return text
+
+if __name__:
+    print("Example:")
+    print(correct_sentence("greetings, friends"))
+    
+    assert correct_sentence("greetings, friends") == "Greetings, friends."
+    assert correct_sentence("Greetings, friends") == "Greetings, friends."
+    assert correct_sentence("Greetings, friends.") == "Greetings, friends."
+    assert correct_sentence("hi") == "Hi."
+    assert correct_sentence("welcome to New York") == "Welcome to New York."
+    
+    print("Coding Complete? Click 'check' to earn cool rewards!")
+    
+<메모>
+김왼손의 풀이 방식을 보고 assert 에 대한 목적과 쓰임새를 알 수 있었고 이를 앞으로의 프로그래밍에
+응용할 수 있을 거라고 생각이 들었다. 또한, 주석 풀이로 알아보기 쉽게 만드는 왼손의 코드를 보며
+나도 코드를 간소화 시키며 필요한 내용을 전달할 수 있는 프로그래머가 될 수 있도록 노력해야겠다.
