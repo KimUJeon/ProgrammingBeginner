@@ -1,0 +1,23 @@
+def first_word(text):
+    # replace를 이용해 . 과 , 를 공백으로 변경하고 strip 함수로 문자 앞뒤 공백을 없애줌
+    text = text.replace('.', ' ').replace(',', ' ').strip()
+    text = text.split()
+    
+    return text[0]
+    
+
+if __name__ :
+    print("Example:")
+    print(first_word("Hello World"))
+    
+    assert first_word("Hello World") == "Hello"
+    assert first_word(" a word ") == "a"
+    assert first_word("don't touch it") == "don't"
+    assert first_word("...and so on...") == "and"
+    assert first_word("hi") == "hi"
+    assert first_word("greetings, friends") == "greetings"
+    assert first_word("Hello.World") == "Hello"
+    print("Complete Coding? Click 'Check' to earn cool rewards!")
+
+
+이번 문제는 replace 와 strip 함수를 이용하여 풀이하였다.
