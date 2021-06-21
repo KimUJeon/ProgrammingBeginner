@@ -1,0 +1,28 @@
+def second_index(s, c):
+    if s.count(c) < 2:
+        return None
+
+    first = s.find(c)
+
+    return s.find(c, first+1)
+
+
+if __name__:
+    print("Example:")
+    print(second_index("sims", "s"))
+
+    assert second_index("sims", "s") == 3, "First"
+    assert second_index("find the river", "e") == 12, "Second"
+    assert second_index("hi", " ") is None, "Third"
+    assert second_index("hi mayor", " ") is None, "Fourth"
+    assert second_index("hi mr Mayor", " ") == 5, "Fifth"
+    print("You are awesome! All tests are done! GO chekck it!!")
+
+
+Input: Two Strings.
+
+Output: Int or None
+
+다음부턴 문제풀이를 할때 단순하게 생각해보도록 하자.
+김왼손의 풀이처럼 찾으려는 문자가 2개이상이 찾아질 경우에만 해당 문자의
+인덱스 부터 시작해 find() 를 이용해 위치를 알아내면 된다.
