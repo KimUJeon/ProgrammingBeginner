@@ -1,0 +1,47 @@
+def popular_words(text: str, words: list):
+    text = text.lower()    # 입력받은 text 문자열을 소문자화 시킴
+    splitted_words = text.split()    # 소문자화 시킨 문자열을 띄어쓰기 기준으로 나누어 list화 시킴
+    answer = {}    # 답을 추가하기 위한 빈 딕셔너리 생성
+
+    for word in words:
+        # words로 입력받은 문자들을 splitted_words 를 기준으로 갯수를 셈
+        answer[word] = splitted_words.count(word)
+
+    return answer
+
+
+if __name__ == '__main__':
+    print("Example:")
+    print(popular_words('''
+    When I was One
+    I had just begun
+    When I was Two
+    I was nearly new
+    ''', ['i', 'was', 'three', 'near']))
+
+    assert popular_words('''
+    When I was One
+    I had just begun
+    When I was Two
+    I was nearly new
+    ''', ['i', 'was', 'three', 'near']) == {
+        'i': 4,
+        'was': 3,
+        'three': 0,
+        'near': 0
+    }
+
+
+At the input of your function are given 2 arguments: the text and the array of words the popularity of which
+you need to determine.
+
+When solving this task pay attention to the following points:
+  The wrods should be sought in all registers. THis means that if you need to find a word "one"
+  then words like "one", "One", "oNe", "ONE" etc. will do.
+  The search words are always indicated in the lowercase.
+  If the words wasn't found even once, it has to be returned in the ditionary with 0 (zero) value.
+  
+Input: The text and the search words array
+
+Output: The dictionary where the search words are the keys and values are the number of tumes when
+those words are occuring in a given text.
