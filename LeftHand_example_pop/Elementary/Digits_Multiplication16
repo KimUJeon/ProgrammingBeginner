@@ -1,0 +1,25 @@
+def checkio(num: int):
+    result = 1
+    for i in str(num):
+        if int(i) != 0:
+            result *= int(i)
+        else:
+            continue
+    return result
+
+
+if __name__ == '__main__':
+    assert checkio(123405) == 120, "First"
+    assert checkio(999) == 729, "Second"
+    assert checkio(1000) == 1, "Third"
+    assert checkio(1111) == 1, "Forth"
+    print("Coding Complete!")
+
+
+You are given a positive integer. Your function should calculate the product of the digits excluding any zeores.
+
+For example: The number given is 123405. The result will be 1*2*3*4*5=120 (don't forget to exclude zeores).
+
+Input: A positive integer.
+
+Output: The product of the digits as an integer.
