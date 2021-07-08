@@ -1,0 +1,18 @@
+def i_love_python():
+    return "I Love Python!"
+
+
+if __name__ == '__main__':
+    assert i_love_python() == "I Love Python!"
+
+
+This mission is simple to solve. You are given a function called "i_love_python" which will only reutrn
+the phrase. "I Love Python!"
+
+Let's wrtie an essay in python code which will explain why you love python (if you don't love it, when we will
+make an additional mission special for the haters). PUblishing the default solution will only earn you 0 points
+as the goal is to earn points through votes for your code essay.
+
+Input: Nothing.
+
+Output: The string "I love Python!".
