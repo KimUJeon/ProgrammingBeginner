@@ -1,0 +1,22 @@
+# -*- coding: utf-8 -*-
+# UTF-8 encoding when using korean
+
+import random
+
+print('가위바위보 게임을 시작합니다!')
+
+game = ['가위', '바위', '보']
+computer = random.choice(game)
+answer = input('무엇을 낼까?')
+
+print('컴퓨터: ' + computer)
+print('나: ' + answer)
+
+#만약 컴퓨터가 가위를 냈다면
+if computer == '가위' :
+	if answer == '가위':
+		print("비겼다!")
+	if answer == '바위':
+		print("이겼다!")	
+	if answer == '보':
+		print("졌다!")
