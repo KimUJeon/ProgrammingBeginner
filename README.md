@@ -11,4 +11,4 @@
 \
 **김왼손의 파이썬 예제 뽀개기 (LeftHand_example_pop) - [다시 보러 가기](https://edu.goorm.io/learn/lecture/11205/%EA%B9%80%EC%99%BC%EC%86%90%EC%9D%98-%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EC%98%88%EC%A0%9C-%EB%BD%80%EA%B0%9C%EA%B8%B0)**
 \
-**무료 파이썬 활용편 1 <추억의 오락실 게임> (Arcade_Python)- [다시 보러 가기](https://edu.goorm.io/learn/lecture/21001/%EB%AC%B4%EB%A3%8C-%ED%8C%8C%EC%9D%B4%EC%8D%AC-%ED%99%9C%EC%9A%A9%ED%8E%B81-%EC%B6%94%EC%96%B5%EC%9D%98-%EC%98%A4%EB%9D%BD%EC%8B%A4-%EA%B2%8C%EC%9E%84-%EB%A7%8C%EB%93%A4%EA%B8%B0)**
+**가위 바위 보 게임 (GaBaBo) - [다시 보러 가기](https://edu.goorm.io/learn/lecture/24499/%EA%B0%80%EC%9C%84%EB%B0%94%EC%9C%84%EB%B3%B4-%EA%B2%8C%EC%9E%84%EC%9D%84-%EB%A7%8C%EB%93%A4%EB%A9%B0-%EB%A7%9B%EB%B3%B4%EB%8A%94-%ED%8C%8C%EC%9D%B4%EC%8D%AC3)**
