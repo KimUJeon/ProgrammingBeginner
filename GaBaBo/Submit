@@ -1,0 +1,8 @@
+# -*- coding: utf-8 -*-
+# UTF-8 encoding when using korean
+
+print('가위바위보 게임을 시작합니다!')
+
+answer = input('무엇을 낼까?')
+
+print('나: ' + answer)
