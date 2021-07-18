@@ -1,0 +1,20 @@
+# -*- coding: utf-8 -*-
+# UTF-8 encoding when using korean
+
+a, b, c = 10, 3, 1.5
+
+print(a+b)
+print(a-b)
+print(a//b)
+print(a%b)
+
+b *= 2
+a *= c
+print(b)
+print(a)
+
+수식 연산자는 두 개의 피연산자를 요구하는 이항 연산자(binary operator)입니다.
+종류는 쉬우므로 생략, 연산 대상인 변수가 모두 숫자라면 int형이든 float형이든 더할 수 있습니다.
+
+할당연산자의 종류는 =, +=, -=, *=, /=, %= 이 있으며 비트 연산자 또한 할당 연산자입니다.
+그 종류로는 &=(AND 비트연산), |=(OR 비트연산), ^=(XOR 비트연산)
