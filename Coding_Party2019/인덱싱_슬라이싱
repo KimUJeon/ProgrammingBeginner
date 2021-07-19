@@ -1,0 +1,13 @@
+# -*- coding: utf-8 -*-
+# UTF-8 encoding when using korean
+
+string = "goorm can make rainbow with best environment"
+
+print("over the " + string[15:22])
+
+
+인덱싱으로 문자열의 각 문자에 접근하기 위해서는 "변수이름[인덱스값]"이다. 인덱스는 0부터 시작한다.
+문자열 자료형은 Immutable 타입으로 한번 초기화 하면 사용자 임의로 값을 변경시킬 수 없다. str = "Hello" 일때
+str[2] = "u" 로 Heulo 로 바꿀 수 없다.
+
+슬라이싱은 "변수명[첫 인덱스 번호:마지막 인덱스 번호]" 형식으로 작성하고, var[0:5] 라면 0부터 4까지 잘라낸다.
