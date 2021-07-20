@@ -1,0 +1,31 @@
+# -*- coding: utf-8 -*-
+# UTF-8 encoding when using korean
+
+a = "Contrary to popular belief, Lorem Ipsum is not simply random text."
+
+print(a.count('t'))
+
+print(a.find('i'))
+
+print(a.upper())
+
+print(a.lower())
+
+print(a.replace('a', 'b'))
+
+print(a.split())
+
+
+함수는 특정한 기능을 수행하기 위해 제작된 명령 묶음이다. 또한, 함수명 옆의 괄호 안에 들어가는 값을 '전달 인자' 라고 한다.
+※ 함수 종류 
+count() : 전달 인자의 문자 개수를 반환
+find() : 함수 대상 문자열에 전달 인자와 같은 문자가 있는지 찾고 문자가 처음 발견된 인덱스 값을 반환, 문자열 내에 없다면 -1 반환
+index() : find()와 같은 역할을 시행하나, 전달 인자가 문자열 내에 없으면 오류 발생
+join() : 전달 인자 사이에 함수의 대상이 되는 문자열 삽입 (ex. ",".join("goorm")) > "g,r,o,o,m"
+upper()/lower() : 함수의 대상이 되는 문자열을 대문자/소문자로 변환
+lstrip()/rstrip() : 함수의 대상이 되는 문자열의 가장 왼쪽/오른쪽 공백을 모두 삭제
+strip() : 함수의 대상이 되는 문자열의 양 쪽에 있는 한칸 이상의 공백 모두 삭제
+replace() : replace(전달인자1, 전달인자2) 형식으로 사용되며 함수의 대상이 되는 문자열에서 전달인자1 과 동일한 부분을 전달인자2로 교체 
+split() : 함수의 대상이 되는 문자열을 전달 인자 기준으로 쪼개 리스트로 반환 (ex. "g!oo!rm".split("!")) > ['g','oo','rm']
+
+함수는 "변수이름(혹은 문자열 자체).함수()" 형태로 작성해 사용한다. len(변수 혹은 값 자체) 형태로 사용 한다.
