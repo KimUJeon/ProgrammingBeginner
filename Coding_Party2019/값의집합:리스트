@@ -1,0 +1,14 @@
+# -*- coding: utf-8 -*-
+# UTF-8 encoding when using korean
+
+my_list = ['a', 1, 2, 3, 'b', ['apple', 'banana'], 4]
+
+print(my_list[3])
+my_list[2] = "hello"
+print(my_list)
+print(my_list[:6])
+print(my_list[5][1])
+
+
+리스트는 값의 집합이다. 기본적으로 "리스트이름 = [요소1, 요소2, ...] 와 같은 형식으로 선언한다.
+비어있는 리스트를 선언하고 싶다면 "리스트이름 = list()" 라고 작성한다.
