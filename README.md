@@ -14,3 +14,5 @@
 **가위 바위 보 게임 (GaBaBo) - [다시 보러 가기](https://edu.goorm.io/learn/lecture/24499/%EA%B0%80%EC%9C%84%EB%B0%94%EC%9C%84%EB%B3%B4-%EA%B2%8C%EC%9E%84%EC%9D%84-%EB%A7%8C%EB%93%A4%EB%A9%B0-%EB%A7%9B%EB%B3%B4%EB%8A%94-%ED%8C%8C%EC%9D%B4%EC%8D%AC3)**
 \
 **2019 온라인 코딩 파티 시즌1 (Coding_Party2019) - [다시 보러 가기](https://edu.goorm.io/learn/lecture/13149/2019-%EC%98%A8%EB%9D%BC%EC%9D%B8-%EC%BD%94%EB%94%A9-%ED%8C%8C%ED%8B%B0-%EC%8B%9C%EC%A6%8C1-let-s-%ED%8C%8C%EC%9D%B4%EC%8D%AC)**
+\
+**2019 온라인 코딩 파티 시즌2 (Coding_Party2019nd) - [다시 보러 가기](https://edu.goorm.io/learn/lecture/13372/2019-%EC%98%A8%EB%9D%BC%EC%9D%B8-%EC%BD%94%EB%94%A9-%ED%8C%8C%ED%8B%B0-%EC%8B%9C%EC%A6%8C2-%ED%85%8D%EC%8A%A4%ED%8A%B8-%EC%BD%94%EB%94%A9-%EC%9A%A9%EC%82%AC%EA%B0%80-%EB%90%98%EC%9E%90)**
