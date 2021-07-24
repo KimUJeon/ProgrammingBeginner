@@ -1,0 +1,16 @@
+leon = Leon("레온")
+def repeat():
+	if leon.detect_monster():
+		if leon.get_sp() >= 3:
+			leon.skill()
+		elif leon.get_sp() >= 2:
+			leon.guard()
+		else:
+			leon.attack()
+	else:
+		if leon.get_hp() < 10:
+			leon.rest()
+		else:
+			leon.go()
+
+leon.repeat = repeat
