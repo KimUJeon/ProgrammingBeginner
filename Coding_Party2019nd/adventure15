@@ -1,0 +1,14 @@
+bincent = Bincent("용사 이름")
+def repeat():
+	result = bincent.search_monster()
+	for i in range(0, 6):
+		if result[i] == true:
+			if bincent.get_sp() >= 3:
+				bincent.skill(i+1)
+			else:
+				bincent.attack(i+1)
+	if bincent.get_hp() < 10:
+		bincent.rest()
+	else:
+		bincent.go()
+bincent.repeat = repeat
