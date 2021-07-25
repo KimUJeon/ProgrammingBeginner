@@ -1,0 +1,17 @@
+leon = Leon("레온")
+dash_a = false
+
+def repeat():
+	if leon.detect_monster():
+		leon.attack()
+	else:
+		if leon.get_hp() < 10 and dash_a == false:
+			leon.rest()
+		else:
+			if leon.get_sp() > 0:
+				leon.dash()
+				dash_a = true
+			else:
+				leon.go()
+			
+leon.repeat = repeat
