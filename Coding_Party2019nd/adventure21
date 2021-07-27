@@ -1,0 +1,24 @@
+leon = Bincent("빈센조")
+
+d_c = 0
+
+def repeat():
+	r = leon.search_monster()
+	
+	for i in range(3):
+		if r[i] == True:
+			if d_c >= 9:
+				if leon.get_sp() >= 3:
+					leon.skill(i+1)
+				else:
+					leon.attack(i+1)
+			else:
+				leon.attack(i+1)
+	if leon.get_hp() <= 4:
+		leon.rest()
+	elif leon.get_sp() >= 3:
+		leon.dash()
+		d_c += 1
+	else:
+		leon.go()
+leon.repeat = repeat
