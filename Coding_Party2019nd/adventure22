@@ -1,0 +1,15 @@
+b = Leon("레옹")
+
+def repeat():
+	if b.detect_monster():
+		if b.get_sp() >= 5:
+			b.skill('wide')
+		else:
+			b.attack()
+	else:
+		if b.get_hp() < 10:
+			b.rest()
+		else:
+			b.go()
+
+b.repeat = repeat
