@@ -1,0 +1,14 @@
+b = Bincent("빈센조")
+
+def repeat():
+	r = b.search_monster()
+	
+	for i in range(3):
+		if r[i] == True:
+			if b.get_hp() <= 4 and b.get_sp() >= 5:
+				b.skill(i+1, 'power')
+			else:
+				b.attack(i+1)
+	b.go()
+
+b.repeat = repeat
