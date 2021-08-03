@@ -1,0 +1,80 @@
+import pygame
+from pygame.locals import *
+pygame.init()
+
+def openingScreen():
+	openingImage = pygame.image.load(root + "images/start.jpg")
+	openingImage = pygame.transform.scale(openingImage, (480, 320))
+	is_opening = True
+	while is_opening:
+		for event in pygame.event.get():
+			if event.type == KEYDOWN and event.key == K_SPACE:
+				is_opening = False
+		
+		screen.blit(openingImage, (0, 0))
+		pygame.display.update()
+		
+
+def scrolling():
+	global back1, back2
+	back1 -= 1
+	back2 -= 1
+	
+	if back1 < -480:
+		back1 = 470
+	if back2 < -480:
+		back2 = 470
+	
+	screen.blit(bgImage, (back1, 0))
+	screen.blit(bgImage, (back2, 0))
+
+def shotBullet():
+	global bullets
+	
+	
+	
+screen = pygame.display.set_mode((480, 320))
+is_end = False
+root = "/resources/codingparty/dlab-pygame/"
+
+openingScreen()
+
+bgImage = pygame.image.load(root + "images/background.jpg")
+bgImage = pygame.transform.scale(bgImage, (480, 320))
+back1, back2 = 0, 470
+
+playerRect = pygame.Rect(50, 250, 50, 50)
+playerImage = pygame.image.load(root + "images/spaceShip.png")
+playerImage = pygame.transform.scale(playerImage, (50, 50))
+
+bulletRect = pygame.Rect(120, 270, 20, 10)
+bulletImage = pygame.image.load(root + "images/bullet.png")
+bulletImage = pygame.transform.scale(bulletImage, (20, 10))
+
+bullets = []
+
+while not is_end:
+	scrolling()
+	
+	for event in pygame.event.get() :
+		if event.type == pygame.QUIT :
+			is_end = True
+		if event.type == KEYDOWN and event.key == K_SPACE:
+			shotBullet()
+			
+	keys = pygame.key.get_pressed()
+	if keys[K_RIGHT] and playerRect.right < 480:
+		playerRect.right += 1
+	if keys[K_LEFT] and playerRect.left > 0:
+		playerRect.left -= 1
+	if keys[K_UP] and playerRect.top > 0:
+		playerRect.top -= 1
+	if keys[K_DOWN] and playerRect.bottom < 320:
+		playerRect.bottom += 1
+		
+	screen.blit(playerImage, playerRect)
+	screen.blit(bulletImage, bulletRect)	
+	pygame.display.update()
+
+pygame.quit()
+quit()
