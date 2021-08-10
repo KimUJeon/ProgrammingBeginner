@@ -1,0 +1,329 @@
+import pygame, random
+from pygame.locals import *
+
+pygame.init()
+
+def openingScreen():
+	openingImage = pygame.image.load(root + "images/start.jpg")
+	openingImage = pygame.transform.scale(openingImage, (480, 320))
+	is_opening = True
+	while is_opening:
+		for event in pygame.event.get():
+			if event.type == KEYDOWN and event.key == K_SPACE:
+				is_opening = False
+
+		screen.blit(openingImage, (0, 0))
+		pygame.display.update()
+
+def endingScreen(result):
+	global is_end
+	if result == "gameover":
+		endingImage = pygame.image.load(root + "images/gameover.jpg")
+	elif result == "gameclear":
+		endingImage = pygame.image.load(root + "images/gameclear.jpg")
+	endingImage = pygame.transform.scale(endingImage, (480, 320))
+	is_ending = True
+	
+	while is_ending:
+		for event in pygame.event.get():
+			if event.type == pygame.QUIT:
+				is_ending = False
+				is_end = True
+		
+		screen.blit(endingImage, (0, 0))
+		pygame.display.update()
+		
+def scrolling():
+	global back1, back2
+	back1 -= 1
+	back2 -= 1
+
+	if back1 < -480:
+		back1 = 470
+	if back2 < -480:
+		back2 = 470
+
+	screen.blit(bgImage, (back1, 0))
+	screen.blit(bgImage, (back2, 0))
+
+
+def shotBullet():
+	global bullets
+	bulletRect = pygame.Rect(playerRect.centerx - 10, playerRect.centery - 5, 20, 10)
+	bullets.append(bulletRect)
+
+def updateBullet():
+	for bullet in bullets:
+		bullet.x += 1
+		if bullet.x > 480:
+			bullets.remove(bullet)
+
+def drawBullet():
+	for bullet in bullets:
+		screen.blit(bulletImage, bullet)
+
+def shotBomb():
+	x = playerRect.centerx
+	y = playerRect.centery-90
+	
+	for i in range(6):
+		bombRect = pygame.Rect(x, y, 40, 20)
+		bombs.append(bombRect)
+		y += 30
+	
+def updateBomb():
+	for bomb in bombs:
+		bomb.x += 1
+		if bomb.x > 480:
+			bombs.remove(bomb)
+	
+def drawBomb():
+	for bomb in bombs:
+		screen.blit(bombImage, bomb)
+
+def drawBombCount():
+	x, y = 10, 50
+	for i in range(bombCount):
+		bombCntRect = pygame.Rect(x, y, 20, 20)
+		screen.blit(bombCntImage, bombCntRect)
+		x += 30
+	
+def adventEnemy():
+	r = random.randint(0, 9)
+	if r > 3:
+		enemyRect = pygame.Rect(480, random.randint(0, 310), 10, 10)
+		enemy1.append(enemyRect)
+	else:
+		enemyRect = pygame.Rect(480, random.randint(0, 300), 20, 20)
+		enemy2.append(enemyRect)
+
+def updateEnemy():
+	for enemy in enemy1:
+		enemy.x -= 2
+		if enemy.x < 0:
+			enemy1.remove(enemy)
+	for enemy in enemy2:
+		enemy.x -= 1
+		if enemy.x < 0:
+			enemy2.remove(enemy)
+
+def drawEnemy():
+	for enemy in enemy1:
+		screen.blit(enemyImage1, enemy)
+	for enemy in enemy2:
+		screen.blit(enemyImage2, enemy)
+
+def updateBoss():
+	global bossSpeedx, bossSpeedy
+	
+	if boss.left < 300 or boss.right > 480:
+		bossSpeedx = -1 * bossSpeedx
+	if boss.top < 0 or boss.bottom > 320:
+		bossSpeedy = -1 * bossSpeedy
+		
+	boss.left += bossSpeedx
+	boss.top += bossSpeedy
+
+def shotBossBomb():
+	bossBomb = pygame.Rect(boss.centerx, boss.centery, 40, 20)
+	bossBombs.append(bossBomb)
+
+def updateBossBomb():
+	for bossBomb in bossBombs:
+		bossBomb.x -= 1
+		if bossBomb.x < 0:
+			bossBombs.remove(bossBomb)
+
+def updateBossDir():
+	global bossSpeedx, bossSpeedy
+	
+	bossSpeedx = random.choice([-1, 1])
+	bossSpeedy = random.choice([-1, 1])
+
+def drawBoss():
+	screen.blit(bossImage, boss)
+	for bossBomb in bossBombs:
+		screen.blit(bossBombImage, bossBomb)
+
+	pygame.draw.rect(screen, (0, 0, 255), bossHPBar)
+	pygame.draw.rect(screen, (255,255, 255), bossHPBarOutline, 2)
+
+def checkPlayerCollide():
+	for enemy in enemy1:
+		if enemy.colliderect(playerRect):
+			enemy1.remove(enemy)
+			playerHPBar.width -= 10
+
+	for enemy in enemy2:
+		if enemy.colliderect(playerRect):
+			enemy2.remove(enemy)
+			playerHPBar.width -= 15
+	
+	if playerHPBar.width <= 0:
+		endingScreen("gameover")
+			
+def checkBulletCollide():
+	global score
+	
+	for enemy in enemy1:
+		for bullet in bullets:
+			if enemy.colliderect(bullet):
+				bullets.remove(bullet)
+				enemy1.remove(enemy)
+				score += 1
+				
+	
+	for enemy in enemy2:
+		for bullet in bullets:
+			if enemy.colliderect(bullet):
+				bullets.remove(bullet)
+				enemy2.remove(enemy)
+				score += 1
+
+def checkBombCollide():
+	global score
+	
+	for enemy in enemy1:
+		isCheck = False
+		for bomb in bombs:
+			if enemy.colliderect(bomb):
+				isCheck = True
+		if isCheck:
+			enemy1.remove(enemy)
+			score += 1
+	
+	for enemy in enemy2:
+		isCheck = False
+		for bomb in bombs:
+			if enemy.colliderect(bomb):
+				isCheck = True
+		
+		if isCheck:
+			enemy2.remove(enemy)
+			score += 1
+	
+screen = pygame.display.set_mode((480, 320))
+is_end = False
+root = "/resources/codingparty/dlab-pygame/"
+
+openingScreen()
+
+bgImage = pygame.image.load(root + "images/background.jpg")
+bgImage = pygame.transform.scale(bgImage, (480, 320))
+back1, back2 = 0, 470
+
+playerRect = pygame.Rect(50, 250, 50, 50)
+playerImage = pygame.image.load(root + "images/spaceShip.png")
+playerImage = pygame.transform.scale(playerImage, (50, 50))
+
+playerHPBar = pygame.Rect(10, 10, 150, 20)
+playerHPBarOutline = pygame.Rect(10, 10, 150, 20)
+
+bulletRect = pygame.Rect(120, 270, 20, 10)
+bulletImage = pygame.image.load(root + "images/bullet.png")
+bulletImage = pygame.transform.scale(bulletImage, (20, 10))
+
+bullets = []
+
+bombs = []
+bombImage = pygame.image.load(root + "images/bomb.png")
+bombImage = pygame.transform.scale(bombImage, (40, 20))
+
+bombCount = 5
+bombCntImage = pygame.transform.scale(bombImage, (20, 20))
+
+enemyTick = 0
+enemy1 = []
+enemy2 = []
+
+enemyImage1 = pygame.image.load(root + "images/stone1.png")
+enemyImage1 = pygame.transform.scale(enemyImage1, (10, 10))
+
+enemyImage2 = pygame.image.load(root + "images/stone2.png")
+enemyImage2 = pygame.transform.scale(enemyImage2, (20, 20))
+
+bossTick = 0
+
+boss = pygame.Rect(400, 100, 70,70)
+bossImage = pygame.image.load(root + 'images/boss.png')
+bossImage = pygame.transform.scale(bossImage, (70, 70))
+
+bossBombs = []
+bossBombImage = pygame.image.load(root + 'images/bossBomb.png')
+bossBombImage = pygame.transform.scale(bossBombImage, (40, 20))
+bossBombImage = pygame.transform.flip(bossBombImage, True, False)
+
+bossHPBar = pygame.Rect(320, 10, 150, 20)
+bossHPBarOutline = pygame.Rect(320, 10, 150, 20)
+
+bossSpeedx = random.choice([-1, 1])
+bossSpeedy = random.choice([-2, -1, 1, 2])
+
+
+score = 0
+font = pygame.font.SysFont(pygame.font.get_default_font(), 40)
+text = font.render(str(score), True, (255, 255, 255))
+
+while not is_end:
+	scrolling()
+
+	for event in pygame.event.get():
+		if event.type == pygame.QUIT:
+			is_end = True
+		if event.type == KEYDOWN and event.key == K_SPACE:
+			shotBullet()
+		if event.type == KEYDOWN and event.key == K_a:
+			if bombCount > 0:
+				shotBomb()
+				bombCount -= 1
+
+	keys = pygame.key.get_pressed()
+	if keys[K_RIGHT] and playerRect.right < 480:
+		playerRect.right += 1
+	if keys[K_LEFT] and playerRect.left > 0:
+		playerRect.left -= 1
+	if keys[K_UP] and playerRect.top > 0:
+		playerRect.top -= 1
+	if keys[K_DOWN] and playerRect.bottom < 320:
+		playerRect.bottom += 1
+
+	updateBullet()
+	updateBomb()
+	
+	updateEnemy()
+	bossTick += 1
+	if bossTick == 200:
+		bossTick = 0
+		updateBossDir()
+		shotBossBomb()
+		
+	enemyTick += 1
+	if enemyTick == 150:
+		enemyTick = 0
+		adventEnemy()
+	
+	checkPlayerCollide()
+	checkBulletCollide()
+	checkBombCollide()
+	
+	screen.blit(playerImage, playerRect)
+	drawBullet()
+	drawBomb()
+	drawBombCount()
+	drawEnemy()
+	
+	if score >= 15  and bossHPBar.width > 0:
+		updateBoss()
+		updateBossBomb()
+		drawBoss()
+	
+	text = font.render(str(score), True, (255, 255, 255))
+	screen.blit(text, (240-text.get_width()/2, 10))
+	
+	pygame.draw.rect(screen, (255, 0, 0), playerHPBar)
+	pygame.draw.rect(screen, (255, 255, 255), playerHPBarOutline, 2)
+	
+	pygame.display.update()
+
+pygame.quit()
+quit()
