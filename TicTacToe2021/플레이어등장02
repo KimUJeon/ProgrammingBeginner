@@ -1,0 +1,26 @@
+print("[2-Player Version]")
+print("틱택토(tic-tac-toe)는 두 명이 번갈아가며 'O'와 'X'를 3×3 판에 써서 같은 글자를 가로, 세로, 혹은 대각선 상에 놓이도록 하는 놀이입니다.")
+print("위치 선택은 아래와 같이 키보드의 숫자 키패드를 이용하세요.")
+print("---------")
+print("| 7 8 9 |")
+print("| 4 5 6 |")
+print("| 1 2 3 |")
+print("---------")
+
+numOfStone = 0 #게임 보드에 'O'와 'X'를 둔 개수('O'와 'X'를 돌이라고 표현했음)
+currentStone = 'O' #먼저 두는 사람이 'O', 뒤에 두는 사람이 'X'를 두는 것으로 정함
+
+while True:
+	inData = input(currentStone + '님, 위치를 선택하세요. ')
+	pos = int(inData)
+	print(currentStone, ' 선택 위치:', pos)
+	numOfStone += 1
+	
+	if numOfStone >= 9:
+		break
+	
+	#현재 순서(돌)가 'O'이면 'X'로, 그렇지 않으면('X'이면) 'O'로 변경함
+	if currentStone == 'O':
+		currentStone = 'X'
+	else:
+		currentStone = 'O'
