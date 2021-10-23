@@ -1,0 +1,37 @@
+def popAt(self, pos):
+        delete_node = self.getAt(pos)
+
+        if pos < 1 or pos > self.nodeCount:     # pos가 1보다 작거나, 리스트의 길이보다 클때 IndexError 발생
+            raise IndexError 
+
+        if pos == 1:    # 첫 번째 노드 삭제 케이스
+            if self.nodeCount == 1:    # 노드가 1밖에 없는 케이스
+                self.head=None
+                self.tail=None
+                self.nodeCount = 0
+            else:                          
+                self.head = self.head.next
+                self.nodeCount -= 1
+            
+            return delete_node.data
+        else:                           # 중간 노드 삭제 케이스
+            prev = self.getAt(pos - 1)
+            prev.next = delete_node.next
+            if pos == self.nodeCount:   # 마지막 노드 삭제 케이스
+                prev.next = None
+                self.tail = prev
+                
+        self.nodeCount -= 1
+        return delete_node.data
+        
+<문제>
+제 8 강에서 소개된 추상적 자료구조 LinkedList 클래스의 메서드로서
+popAt() 메서드를 강의 내용에 소개된 요구조건을 만족시키도록 구현하세요.
+
+초기 코드로 들어 있는 것은 solution() 함수를 포함하여 다른 부분은 수정하지 말고
+def popAt(self, pos): 의 메서드 몸체만 구현하세요.
+
+만약, 인자로 주어진 pos 가 올바른 범위의 값을 가지지 않는 경우에는 IndexError exception 을 발생시키도록 합니다.
+이렇게 하기 위한 코드는 raise IndexError 입니다.
+
+출처: 어서와! 자료구조와 알고리즘은 처음이지?
