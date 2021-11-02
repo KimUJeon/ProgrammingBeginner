@@ -1,0 +1,32 @@
+class PriorityQueue:
+
+    def __init__(self):
+        self.queue = DoublyLinkedList()
+
+    def size(self):
+        return self.queue.getLength()
+
+    def isEmpty(self):
+        return self.size() == 0
+
+    def enqueue(self, x):
+        newNode = Node(x)
+        curr = self.queue.head
+
+        while curr.next != self.queue.tail and x < curr.next.data:
+            curr = curr.next
+        self.queue.insertAfter(curr, newNode)
+
+    def dequeue(self):
+        return self.queue.popAt(self.queue.getLength())
+
+    def peek(self):
+        return self.queue.getAt(self.queue.getLength()).data
+
+def solution(x):
+    return 0
+    
+[문제]
+앞선 강의에서 소개된 양방향 연결 리스트의 추상적 자료구조 구현인 클래스 DoublyLinkedList 를 이용하여 우선순위 큐의 추상적 자료구조인 클래스 PriorityQueue 의 구현을 완성하세요.
+
+출처: 어서와 알고리즘은 처음이지
