@@ -1,0 +1,42 @@
+class Node:
+
+    def __init__(self, item):
+        self.data = item
+        self.left = None
+        self.right = None
+
+    def size(self):
+        l = self.left.size() if self.left else 0
+        r = self.right.size() if self.right else 0
+        return l + r + 1
+
+    def depth(self):
+        l = self.left.depth() if self.left else 0
+        r = self.right.depth() if self.right else 0
+        return max(l,r) + 1
+
+class BinaryTree:
+
+    def __init__(self, r):
+        self.root = r
+
+    def size(self):
+        if self.root:
+            return self.root.size()
+        else:
+            return 0
+
+    def depth(self):
+        if self.root:
+            return self.root.depth()
+        else:
+            return 0
+
+def solution(x):
+    return 0
+    
+[문제]
+이미 주어진 코드 (class Node 와 class BinaryTree 에 의하여) 의 구조를 따르는 이진 트리 (binary tree) 에 대하여
+트리의 깊이 (depth) 를 구하는 연산의 구현을 완성하세요.
+
+출처: 어서와 알고리즘은 처음이지
