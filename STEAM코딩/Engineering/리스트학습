@@ -1,0 +1,26 @@
+** 리스트의 원소 추가 **
+
+example = []
+example.append("가")			# example 리스트에 "가" 추가
+example.append("나")			# example 리스트에 "나" 추가
+example.append("다")			# example 리스트에 "다" 추가
+print(example)
+
+for i in range(len(example):
+	print(i, example[i])
+   
+example.insert(2, "라")
+print(example)
+for i in range(len(example)):
+	print(I, example[i])
+  
+** 리스트의 원소 삭제**
+
+example = ["가", "나", "라", "다"]
+print(example, len(example))
+del example[2]
+print(example, len(example))
+del example[0:2]
+print(example, len(example))
+example.remove('다")
+print(example, len(example))
