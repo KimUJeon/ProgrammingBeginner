@@ -1,0 +1,30 @@
+def isbn_check(isbn):
+    s = 0
+    
+    for i in range(len(isbn)-1):
+        if (i+1) % 2 == 1:				# 홀수 자리에 가중치 1을 곱함
+            s = s + int(isbn[i]) * 1
+        else:							# 짝수 자리는 가중치 3을 곱함
+            s = s + int(isbn[i]) * 3
+    print("ISBN 1~12자리의 가중치 반영 합계: %d"%s)
+    
+    t = s % 10							# 변수 s의 가중치 압을 10으로 나누어 나머지 값을 구함
+    chk = (10 - t) % 10
+    print("ISBN 1~12자리의 체크기호 값: %d"%chk)
+    
+    if chk == int(isbn[12]):			# 체크기호 값이 isbn[12]와 일치할 경우
+        rst = 1							# rst의 값이 1로 설정됨 == 검증됨
+    else:
+        rst = 0
+    return rst
+
+isbn = input("ISBN 13자리(- 제외) : ")
+
+if len(isbn) == 13:
+    rst = isbn_check(isbn)
+    if rst == 1:
+        print("ISBN 코드 : %s는 검증되었습니다."%isbn)
+    else:
+        print("ISBN 코드 : %s는 검증되지 않았습니다."%isbn)
+else:
+    print("ISBN 코드 입력은 -를 제외하고 13자리를 입력해주세요.")
