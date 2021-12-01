@@ -1,0 +1,29 @@
+# 문자열 특정위치 문자 얻기
+
+st = "Text String"
+print(st[0], st[1], st[len(st)-1]
+for i in range(len(st)):
+	print(st[i], end=" ")
+print("")
+print(st[len(st)])	# IndexError 발생
+
+# 문자열 예약어 및 함수
+'''
+if 'x' in st:       # in : 특정 문자가 존재하는지 확인
+'''
+n = len(st)         # len() : 문자열의 길이 확인
+'''
+n1 = int(s1)
+n2 = float(st2)
+'''
+st3 = st.replcae('S', 's')        # replace() : 문자열에서 특정 문자 변환
+'''
+st4 = st.upper()                  # upper() : 모든 문자 대문자화
+st5 = st.lower()                  # lower() : 모든 문자 소문자화
+'''
+if st.isdigit():                  # isdigit() : 문자열이 숫자만으로 구성되어있는지 검사
+'''
+if st.isalpha():                  # isalpha() : 문자열이 문자만으로 구성되어있는지 검사
+'''
+if st.isalnum():                  # isalnum() : 문자열이 숫자/문자만으로 구성되어있는지 검사
+'''
