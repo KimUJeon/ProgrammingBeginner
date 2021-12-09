@@ -1,0 +1,21 @@
+import random
+
+n = int(input("Simul count :"))
+if n < 1 or n > 10000:
+    print("Simul count = 1 ~ 10000")
+else:
+    print("Count : Ratio")
+    coinF = 0
+    for i in range(1, n+1):
+        cFR = random.randint(0, 1)
+        if cFR == 0:
+            coinF = coinF + 1
+        if i < 10:
+            print("%5d : %5.1f%%"%(i, coinF/i*100))
+        elif i< 100 and i % 10 == 0:
+            print("%5d : %5.1f%%"%(i, coinF/i*100))
+        elif i < 1000 and i % 100 == 0:
+            print("%5d : %5.1f%%"%(i, coinF/i*100))
+        elif i >= 1000 and i % 1000 == 0:
+            print("%5d : %5.1f%%"%(i, coinF/i*100))
+    print("%5d : %5.1f%%"%(i, coinF/i*100))
