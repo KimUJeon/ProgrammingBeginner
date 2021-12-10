@@ -1,0 +1,56 @@
+import turtle as t
+import random
+import time
+
+coin_face = [ "coin-100-f.gif", "coin-100-b.gif"]				# 실행하는 파일 경로에 해당하는 파일이 위치해야 작동
+
+def coin_game():
+    global c_cnt
+
+    t.clear()
+    coin1 = random.randint(0, 1)
+    coin2 = random.randint(0, 1)
+
+    cq1 = int(t.numinput("입력", "동전1 (0:앞면, 1:뒷면) : ", 0, 0, 1))
+    cq2 = int(t.numinput("입력", "동전2 (0:앞면, 1:뒷면) : ", 0, 0, 1))
+    t.goto(-100, 30)
+    t.shape(coin_face[coin1])
+    t.showturtle()
+    t.stamp()
+
+    t.goto(100, 30)
+    t.shape(coin_face[coin2])
+    t.stamp()
+    t.hideturtle()
+
+    time.sleep(1)
+
+    t.clear()
+    t.goto(-50, 0)
+    if coin1 == cq1 and coin2 == cq2:				# coin1, coin2의 모양이 cq1,cq2 모두 같으면
+        t.write("동전 면을 맞춤")
+        c_cnt = c_cnt + 1
+    else:
+        t.write("동전 면을 맞추지 못함")
+    time.sleep(1)
+
+
+t.setup(500, 500)
+s = t.Screen()
+t.hideturtle()
+t.penup()
+t.goto(0, -200)
+t.speed(0)
+
+s.addshape(coin_face[0])
+s.addshape(coin_face[1])
+
+c_cnt = 0
+n = int(t.numinput("입력", "게임 횟수 : ", 5, 1, 100))
+for i in range(n):
+    coin_game()
+
+t.clear()
+t.goto(-130, 0)
+t.write("%d 게임 중 %d번을 맞추었습니다. 맞춘 비율은 %d%%입니다." %(n, c_cnt, c_cnt/n*100))
+t.mainloop()
